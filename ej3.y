@@ -18,13 +18,13 @@ inicio:	/* epsilon */
 entrada: s EOL
 
 s:	/*epsilon*/
-	| c X s	{printf("CxS\n");}
+	| c X s	
 	;
-b:	 X c Y Z Y {printf("xCyzy\n");}
-	| X c {printf("xC\n");}
+b:	 X c Y Z Y 
+	| X c 
 	;
-c:	 X b X {printf("xBx\n");}
-	| Z {printf("z\n");}
+c:	 X b X 
+	| Z 
 	;
 	
 %%
