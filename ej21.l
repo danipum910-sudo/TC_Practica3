@@ -1,11 +1,9 @@
+/* calcMejor.l fichero para la practica 3 
+   de Teoria de la Computacion */
 %{
 #define YYSTYPE double
 #include "y.tab.h"
-#include <math.h>
-#include <stdlib.h>
 %}
-
-REAL  ([0-9]+"."[0-9]*|"."[0-9]+|[0-9]+)
 %%
 "+"	{return(ADD);}
 "-"	{return(SUB);}
@@ -13,8 +11,9 @@ REAL  ([0-9]+"."[0-9]*|"."[0-9]+|[0-9]+)
 "/"	{return(DIV);}
 "("	{return(OP);}
 ")"	{return(CP);}
-{REAL}  { yylval = atof(yytext); return(NUMBER); }
+[0-9]+	{yylval = atoi(yytext); return(NUMBER);}
 \n	{return(EOL);}
 [ \t]	{/* ignorar espacios */}
+"."	{return(DECIMAL);}
 .	{return(yytext[0]); /* caracter inesperado */}
 %%
